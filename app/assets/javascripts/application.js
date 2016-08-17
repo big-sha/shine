@@ -12,5 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require angular
 //= require_tree .
 //= require bootstrap-sass/assets/javascripts/bootstrap-sprockets
