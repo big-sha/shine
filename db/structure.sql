@@ -2,12 +2,16 @@
 -- PostgreSQL database dump
 --
 
+-- Dumped from database version 9.5.3
+-- Dumped by pg_dump version 9.5.3
+
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SET check_function_bodies = false;
 SET client_min_messages = warning;
+SET row_security = off;
 
 --
 -- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: -
@@ -30,7 +34,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: ar_internal_metadata; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: ar_internal_metadata; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE ar_internal_metadata (
@@ -42,7 +46,7 @@ CREATE TABLE ar_internal_metadata (
 
 
 --
--- Name: customers; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: customers; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE customers (
@@ -76,7 +80,7 @@ ALTER SEQUENCE customers_id_seq OWNED BY customers.id;
 
 
 --
--- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE schema_migrations (
@@ -85,7 +89,7 @@ CREATE TABLE schema_migrations (
 
 
 --
--- Name: users; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: users; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE users (
@@ -140,7 +144,7 @@ ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regcl
 
 
 --
--- Name: ar_internal_metadata_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: ar_internal_metadata_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY ar_internal_metadata
@@ -148,7 +152,7 @@ ALTER TABLE ONLY ar_internal_metadata
 
 
 --
--- Name: customers_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: customers_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY customers
@@ -156,7 +160,7 @@ ALTER TABLE ONLY customers
 
 
 --
--- Name: schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY schema_migrations
@@ -164,7 +168,7 @@ ALTER TABLE ONLY schema_migrations
 
 
 --
--- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY users
@@ -172,49 +176,49 @@ ALTER TABLE ONLY users
 
 
 --
--- Name: customers_lower_email; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: customers_lower_email; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX customers_lower_email ON customers USING btree (lower((email)::text));
 
 
 --
--- Name: customers_lower_first_name; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: customers_lower_first_name; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX customers_lower_first_name ON customers USING btree (lower((first_name)::text) varchar_pattern_ops);
 
 
 --
--- Name: customers_lower_last_name; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: customers_lower_last_name; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX customers_lower_last_name ON customers USING btree (lower((last_name)::text) varchar_pattern_ops);
 
 
 --
--- Name: index_customers_on_email; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_customers_on_email; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE UNIQUE INDEX index_customers_on_email ON customers USING btree (email);
 
 
 --
--- Name: index_customers_on_username; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_customers_on_username; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE UNIQUE INDEX index_customers_on_username ON customers USING btree (username);
 
 
 --
--- Name: index_users_on_email; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_users_on_email; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE UNIQUE INDEX index_users_on_email ON users USING btree (email);
 
 
 --
--- Name: index_users_on_reset_password_token; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_users_on_reset_password_token; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE UNIQUE INDEX index_users_on_reset_password_token ON users USING btree (reset_password_token);
@@ -224,7 +228,7 @@ CREATE UNIQUE INDEX index_users_on_reset_password_token ON users USING btree (re
 -- PostgreSQL database dump complete
 --
 
-SET search_path TO "$user",public;
+SET search_path TO "$user", public;
 
 INSERT INTO schema_migrations (version) VALUES ('20160815034342'), ('20160815235015'), ('20160816101158'), ('20160817180634');
 
