@@ -29,6 +29,7 @@ RSpec.configure do |config|
     # ...rather than:
     #     # => "be bigger than 2"
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
+    expectations.syntax = [:expect]
   end
 
   # rspec-mocks config goes here. You can use an alternate test double
@@ -38,6 +39,7 @@ RSpec.configure do |config|
     # a real object. This is generally recommended, and will default to
     # `true` in RSpec 4.
     mocks.verify_partial_doubles = true
+    mocks.verify_doubled_constant_names = true
   end
 
   # This option will default to `:apply_to_host_groups` in RSpec 4 (and will
@@ -49,7 +51,7 @@ RSpec.configure do |config|
 
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
-=begin
+#begin
   # This allows you to limit a spec run to individual examples or groups
   # you care about by tagging them with `:focus` metadata. When nothing
   # is tagged with `:focus`, all examples get run. RSpec also provides
@@ -71,7 +73,7 @@ RSpec.configure do |config|
 
   # Many RSpec users commonly either run the entire suite or an individual
   # file, and it's useful to allow more verbose output when running an
-  # individual spec file.
+   individual spec file.
   if config.files_to_run.one?
     # Use the documentation formatter for detailed output,
     # unless a formatter has already been configured
@@ -95,5 +97,5 @@ RSpec.configure do |config|
   # test failures related to randomization by passing the same `--seed` value
   # as the one that triggered the failure.
   Kernel.srand config.seed
-=end
+  #end
 end
