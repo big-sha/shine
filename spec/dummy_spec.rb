@@ -8,4 +8,3 @@ describe 'testing that rspec is configured' do
     expect(false).to eq(true)
   end
 end
-
