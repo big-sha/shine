@@ -1,0 +1,4 @@
+example_id                | status | run_time        |
+------------------------- | ------ | --------------- |
+./spec/dummy_spec.rb[1:1] | passed | 0.00126 seconds |
+./spec/dummy_spec.rb[1:2] | failed | 0.07783 seconds |
